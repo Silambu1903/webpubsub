@@ -1,4 +1,4 @@
-name: Build and deploy JAR app to Azure Web App - guestAppWebService
+name: Build and deploy Gradle app to Azure Web App - guestAppWebService
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: java-app
+          name: gradle-app
           path: build/libs/*.jar
 
   deploy:
@@ -41,7 +41,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: java-app
+          name: gradle-app
 
       - name: Login to Azure
         uses: azure/login@v2
